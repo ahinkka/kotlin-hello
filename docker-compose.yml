@@ -1,0 +1,13 @@
+version: '0'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080"
+
+  db:
+    image: postgres:10-alpine
+    container_name: kotlin-hello-db
+    volumes:
+      - "./volumes/db/pg_data:/var/lib/postgresql/data"
