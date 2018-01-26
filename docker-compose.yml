@@ -5,9 +5,12 @@ services:
     build: .
     ports:
       - "8080"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://db:5432/kotlin-hello"
+      SPRING_DATASOURCE_USERNAME: "hello"
+      SPRING_DATASOURCE_PASSWORD: "hello123"
 
   db:
     image: postgres:10-alpine
-    container_name: kotlin-hello-db
     volumes:
-      - "./volumes/db/pg_data:/var/lib/postgresql/data"
+      - "./volumes/db/pg_data:/var/lib/postgresql/data" # host-relative-path:path-within-container
